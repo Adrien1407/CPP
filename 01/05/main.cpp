@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 16:02:20 by adlancel          #+#    #+#             */
-/*   Updated: 2021/11/14 16:12:51 by adlancel         ###   ########.fr       */
+/*   Created: 2022/01/05 13:27:20 by adlancel          #+#    #+#             */
+/*   Updated: 2022/01/05 13:31:45 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Karen.hpp"
 
 int main(int ac, char **av)
 {
-	int i;
-	int j;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	Karen karen;
+
+	if (ac == 2)
+	{
+		karen.complain(av[1]);
+	}
 	else
-		for(i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-	std::cout << std::endl;
-	return (0);
+		std::cout << "Wrong instruction for Queen Karen" << std::endl;
 }

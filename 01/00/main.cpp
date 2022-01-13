@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 16:02:20 by adlancel          #+#    #+#             */
-/*   Updated: 2021/11/14 16:12:51 by adlancel         ###   ########.fr       */
+/*   Created: 2021/12/08 13:50:50 by adlancel          #+#    #+#             */
+/*   Updated: 2021/12/10 15:58:32 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "./Zombie.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
 	int i;
-	int j;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-		for(i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-	std::cout << std::endl;
-	return (0);
+	Zombie *zombies = new Zombie[7];
+	std::string names[8] = {"ad", "jo", "will", "bill", "bernard", "christian", "albert", "phil"};
+	Zombie *eight = newZombie(names[7]);
+	i = -1;
+	while (++i < 7)
+	{
+	zombies[i].name(names[i]);
+	zombies[i].announce();
+	}
+	delete (eight);
+	i = -1;
+	delete [] zombies;
+	randomChump("lulu");
+return (0);
 }

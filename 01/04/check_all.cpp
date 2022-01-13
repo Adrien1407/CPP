@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   check_all.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 16:02:20 by adlancel          #+#    #+#             */
-/*   Updated: 2021/11/14 16:12:51 by adlancel         ###   ########.fr       */
+/*   Created: 2022/01/04 16:02:32 by adlancel          #+#    #+#             */
+/*   Updated: 2022/01/04 16:50:11 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "main.hpp"
 
-int main(int ac, char **av)
+bool check_all(int ac, char **av)
 {
-	int i;
-	int j;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-		for(i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-	std::cout << std::endl;
-	return (0);
+	if (ac != 4)
+	{
+		display_error("invalid number of parameters\n");
+		return (0);
+	}
+	if(!av[2])
+	{
+		display_error("no string to find\n");
+		return (0);
+	}
+	if(!av[3])
+	{
+		display_error("no string to replace\n");
+		return (0);	
+	}
+	return (1);
 }

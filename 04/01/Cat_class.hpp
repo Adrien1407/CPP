@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Cat_class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 16:02:20 by adlancel          #+#    #+#             */
-/*   Updated: 2021/11/14 16:12:51 by adlancel         ###   ########.fr       */
+/*   Created: 2022/01/10 16:48:23 by adlancel          #+#    #+#             */
+/*   Updated: 2022/01/11 17:28:33 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef CAT_CLASS_HPP
+#define CAT_CLASS_HPP
 
-int main(int ac, char **av)
+#include "./Animal_class.hpp"
+#include "./Brain_class.hpp"
+
+class Cat : virtual public Animal
 {
-	int i;
-	int j;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-		for(i = 1; i < ac; i++)
-		{
-			std::string str(av[i]);
-			for (j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-	std::cout << std::endl;
-	return (0);
-}
+
+	public:
+		Cat();
+		~Cat();
+		Cat(Cat const &obj);
+		Cat &operator=(Cat const &obj);
+		void makeSound() const;
+		Brain	&getBrain();
+	private:
+		Brain* brain;
+};
+#endif
