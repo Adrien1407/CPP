@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 14:38:38 by adlancel          #+#    #+#             */
-/*   Updated: 2022/01/26 12:26:27 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:50:25 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,22 @@ class Form
 		Form &operator=(Form const &obj);
 		
 		std::string	const	getName() const;
-		void				beSigned(Bureaucrat &obj);
 		bool				getSigned() const;
 		int					getGradeExec() const;
 		int					getGradeSign() const;
-
+		void				beSigned(Bureaucrat &obj);
+		virtual bool		execute(Bureaucrat const &executor) const = 0;
 		class GradeTooHighException : public std::exception
 	{
 		public:
 			const char *what() const throw();
 	};
 		class GradeTooLowException : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
+		class NotSignedException : public std::exception
 	{
 		public:
 			const char *what() const throw();
