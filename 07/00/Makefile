@@ -5,18 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/02 16:05:08 by adlancel          #+#    #+#              #
-#    Updated: 2022/02/02 16:05:10 by adlancel         ###   ########.fr        #
+#    Created: 2022/02/02 16:05:25 by adlancel          #+#    #+#              #
+#    Updated: 2022/02/02 16:05:49 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
-NAME = identify 
+NAME = whatever 
 
 SRCS =  main.cpp
 
-HEADER = A.hpp B.hpp C.hpp Base.hpp 
+HEADER = whatever.hpp 
 
 CC = clang++
 
