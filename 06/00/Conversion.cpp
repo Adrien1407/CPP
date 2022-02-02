@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.cpp                                     :+:      :+:    :+:   */
+/*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:53:27 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/02 12:13:50 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:37:51 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	toChar(double value)
 {
 	if (value >= 32 && value <= 126)
 		std::cout << "char = " << static_cast<char>(value) << std::endl;
-	else if (value < 0 && value > 127  || std::isnan(value))
+	else if (value < 0 ||  value > 127  || std::isnan(value))
 		std::cout << "char = not possible" << std::endl;
 	else
 		std::cout << "char = non displayable" << std::endl;
