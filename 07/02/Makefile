@@ -6,15 +6,15 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/02 16:05:25 by adlancel          #+#    #+#              #
-#    Updated: 2022/02/03 10:02:04 by adlancel         ###   ########.fr        #
+#    Updated: 2022/02/03 12:49:04 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter 
+NAME = Array 
 
-SRCS =  main.cpp
+SRCS =  main.cpp 
 
-HEADER = iter.hpp 
+HEADER = Array.hpp 
 
 CC = clang++
 
