@@ -6,37 +6,37 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 11:33:02 by adlancel          #+#    #+#              #
-#    Updated: 2021/12/07 12:05:59 by adlancel         ###   ########.fr        #
+#    Updated: 2022/02/07 15:00:03 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = phonebook
 
-NAME			= Phonebook
-CC				= clang++
-HEADER			= ./
-FLAGS			= -Wall -Wextra -Werror
-RM				= /bin/rm -f
+SRCS = main.cpp Contact.cpp Phonebook.cpp
 
-SRCS		= $(addprefix ./, ${SRCS_FILES})
-SRCS_FILES	= \
+HEADER = Phonebook.hpp Contact.hpp
 
-OBJS		= ${SRCS:.c=.o}
+CC = clang++
 
-%.o: %.c
-	@${CC} ${FLAGS} -I ${HEADER} -o $@ -c $<
+CFLAGS = -Wextra -Werror -Wall -std=c++98
 
+OBJS = ${SRCS:.cpp=.o}
+
+.c.o:
+			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.cpp=.o}
 
 all:		${NAME}
 
-${NAME}: ${OBJS}
-	${CC} ${FLAGS} ./main.cpp ${OBJS} -o ${NAME}
+${NAME}:	${OBJS}
+			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
-	@${RM}
+			@rm -rf ${OBJS}
 
 fclean:		clean
-	@${RM} ${NAME}
+			@rm -rf ${NAME}
 
 re:			fclean all
 
-.PHONY:\
-	all fclean clean re \
+.PHONY: all clean fclean re
+
+
