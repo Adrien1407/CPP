@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 12:04:54 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/07 16:18:12 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:29:34 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CONTACT_HPP
@@ -14,14 +14,17 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Contact {
 	public:
 		Contact();
 		~Contact();
 		bool				exist();
-		Contact				&set_details();
+		void				set_details();
 		void				show_details();
+		void				show_all_details(int i);
+		std::string			format(std::string str);
 		std::string const	get_first_name();
 		std::string const	get_last_name();
 		std::string	const	get_nickname();
