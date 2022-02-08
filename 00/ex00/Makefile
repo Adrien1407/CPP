@@ -6,37 +6,37 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 11:33:02 by adlancel          #+#    #+#              #
-#    Updated: 2022/02/07 12:03:29 by adlancel         ###   ########.fr        #
+#    Updated: 2022/02/08 19:09:27 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = megaphone
 
-NAME			= megaphone 
-CC				= clang++
-HEADER			= ./
-FLAGS			= -Wall -Wextra -Werror
-RM				= /bin/rm -f
+SRCS = megaphone.cpp
 
-SRCS		= $(addprefix ./, ${SRCS_FILES})
-SRCS_FILES	= \
+HEADER = 
 
-OBJS		= ${SRCS:.c=.o}
+CC = clang++
 
-%.o: %.c
-	@${CC} ${FLAGS} -I ${HEADER} -o $@ -c $<
+CFLAGS = -Wextra -Werror -Wall -std=c++98
 
+OBJS = ${SRCS:.cpp=.o}
+
+.c.o:
+			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.cpp=.o}
 
 all:		${NAME}
 
-${NAME}: ${OBJS}
-	${CC} ${FLAGS} ./megaphone.cpp ${OBJS} -o ${NAME}
+${NAME}:	${OBJS}
+			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
-	@${RM}
+			@rm -rf ${OBJS}
 
 fclean:		clean
-	@${RM} ${NAME}
+			@rm -rf ${NAME}
 
 re:			fclean all
 
-.PHONY:\
-	all fclean clean re \
+.PHONY: all clean fclean re
+
+
