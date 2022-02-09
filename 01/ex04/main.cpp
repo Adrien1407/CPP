@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:34:35 by adlancel          #+#    #+#             */
-/*   Updated: 2022/01/04 16:59:27 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:40:41 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,18 @@ void	display_error(std::string error)
 void	find_and_replace(std::string &buff, std::string s1, std::string s2)
 {
 	size_t pos;
-	
-		pos = buff.find(s1, 0);
+
+	pos = buff.find(s1);
 	if (pos == std::string::npos)
+	{
+		display_error("no matching expression");
 		return ;
+	}
 	while (pos != std::string::npos)
 	{
 		buff.erase(pos, s1.length());
 		buff.insert(pos, s2);
-		pos = buff.find(s1, pos);
+		pos = buff.find(s1, pos + s2.length());
 	}
 }
 
@@ -50,16 +53,21 @@ int main(int ac, char **av)
 		s1 = av[2];
 		s2 = av[3];
 		std::ifstream filein(av[1]);
+		if (s1.empty()|| s2.empty())
+		{
+			display_error("strings cannot be empty");
+			return (1);
+		}
 		if (!filein.is_open())
 		{
-			display_error("Can not open file in\n");
+			display_error("Can not open file in");
 			return (1);
 		}
 		std::string fileoutname = ".modified";
 		std::ofstream fileout(av[1] + fileoutname);
 		if (!fileout.is_open())
 		{
-			display_error("Can not open file in\n");
+			display_error("Can not open file in");
 			return (1);
 		}
 		std::string buff = fill_buff(filein);

@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:08:28 by adlancel          #+#    #+#             */
-/*   Updated: 2022/01/05 14:38:41 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:12:49 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,34 @@ Karen::~Karen()
 void	Karen::complain(std::string level)
 {
 	int i;
-
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Karen::*f_pointer[4])(void);
 
-	i = -1;
-	while (++i < 5)
-	{
+	f_pointer[0] = &Karen::debug;
+	f_pointer[1] = &Karen::info;
+	f_pointer[2] = &Karen::warning;
+	f_pointer[3] = &Karen::error;
+
+	for (i = 0; i < 4; i++) {
 		if (level == levels[i])
 			break;
 	}
 	switch(i)
 	{
-		case 0:
-			{
-				Karen::debug();
-				break;
-			}
-		case 1:
-			{
-				Karen::info();
-				break;
-			}
-		case 2:
-			{
-				Karen::warning();
-				break;
-			}
-		case 3:
-			{
-				Karen::error();
-				break;
-			}
 		default:
+		if (i > 3)
+		{
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
+		}
+		case 0:
+		(this->*f_pointer[i++])();
+		case 1:
+		(this->*f_pointer[i++])();
+		case 2:
+		(this->*f_pointer[i++])();
+		case 3:
+		(this->*f_pointer[i++])();
 
 	}
 }

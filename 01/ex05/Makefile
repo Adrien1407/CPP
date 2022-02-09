@@ -5,34 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/17 11:12:24 by adlancel          #+#    #+#              #
-#    Updated: 2021/12/17 11:22:15 by adlancel         ###   ########.fr        #
+#    Created: 2021/12/07 11:33:02 by adlancel          #+#    #+#              #
+#    Updated: 2022/02/09 16:52:41 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME =Karen
 
-NAME = brain
+SRCS = main.cpp Karen.cpp
 
-SRCS = main.cpp
+HEADER = Karen.hpp 
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wextra -Werror -Wall -std=c++98
 
 OBJS = ${SRCS:.cpp=.o}
 
 .c.o:
-					@${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.cpp=.o}
 
-all: ${NAME}
+all:		${NAME}
 
-${NAME}: ${OBJS}
-					@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+${NAME}:	${OBJS}
+			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
-					@rm -rf ${OBJS}
+			@rm -rf ${OBJS}
 
 fclean:		clean
-					@rm -rf ${NAME}
+			@rm -rf ${NAME}
+
 re:			fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
+
+

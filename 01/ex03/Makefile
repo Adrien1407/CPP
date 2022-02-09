@@ -5,32 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/09 11:48:50 by adlancel          #+#    #+#              #
-#    Updated: 2021/12/10 15:59:22 by adlancel         ###   ########.fr        #
+#    Created: 2021/12/07 11:33:02 by adlancel          #+#    #+#              #
+#    Updated: 2022/02/09 16:48:25 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = Weapon
 
-NAME = zombie
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-
-HEADER = Zombie.hpp
+HEADER = HumanA.hpp HumanB.hpp Weapon.hpp 
 
 CC = clang++
 
-CFLAGS = -Wextra -Werror -Wall
+CFLAGS = -Wextra -Werror -Wall -std=c++98
 
 OBJS = ${SRCS:.cpp=.o}
 
-.c.o: 
+.c.o:
 			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.cpp=.o}
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
 			@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-			
-clean:		
+
+clean:
 			@rm -rf ${OBJS}
 
 fclean:		clean

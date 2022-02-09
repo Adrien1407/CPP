@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 11:42:35 by adlancel          #+#    #+#             */
-/*   Updated: 2021/12/17 11:49:16 by adlancel         ###   ########.fr       */
+/*   Created: 2021/12/21 11:24:27 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/09 14:48:14 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef	HUMANA_HPP
-#define	HUMANA_HPP
 
-#include "./Weapon.hpp"
+#include "./HumanA.hpp"
 
-class	HumanA {
-
-	public:
-		HumanA(std::string, Weapon &arme);
-		~HumanA();
-		void attack();
-	private:
-		Weapon &arme;
-		std::string name;
+HumanA::HumanA(std::string name, Weapon &arme) : _name(name), arme(arme)
+{
+	std::cout << this->_name << "grab a" << this->arme.getType() << std::endl;
 }
-#endif
+HumanA::~HumanA()
+{
+
+}
+void	HumanA::attack()
+{
+	std::cout << this->_name << "attacks with" << this->arme.getType() << std::endl;
+
+}

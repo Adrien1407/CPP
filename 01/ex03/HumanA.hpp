@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:42:35 by adlancel          #+#    #+#             */
-/*   Updated: 2021/12/20 11:54:32 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:46:57 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef	HUMANB_HPP
-#define	HUMANB_HPP
+#ifndef	HUMANA_HPP
+#define	HUMANA_HPP
 
 #include "./Weapon.hpp"
 
-class	HumanB {
+class	HumanA {
 
 	public:
-		HumanB();
-		~HumanB();
+		~HumanA();
+		HumanA(std::string, Weapon &arme);
 		void attack();
 	private:
 		Weapon &arme;
-		std::string name;
-}
+		std::string _name;
+};
 #endif

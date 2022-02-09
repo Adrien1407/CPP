@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 11:24:27 by adlancel          #+#    #+#             */
-/*   Updated: 2021/12/21 15:48:42 by adlancel         ###   ########.fr       */
+/*   Created: 2021/12/17 11:38:26 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/09 15:38:37 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./HumanA.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-HumanA::HumanA(std::string name, Weapon &arme) : name(name), arme(arme)
-{
-	std::cout << this->name << "grab a" << this->arme.getType() << std::endl;
-}
-HumanA::~HumanA()
-{
+#include <iomanip>
+#include <iostream>
+#include <string>
 
-}
-void	HumanA:attack()
+class Weapon
 {
-std::cout << this->name << "attacks with" << this->arme.getType() << std::endl;
+	public :
+		Weapon();
+		Weapon(std::string type);
+		~Weapon();
+		const std::string &getType();
+		void setType(const std::string type);
+	private :
+		std::string _type;
+};
 
-}
+#endif

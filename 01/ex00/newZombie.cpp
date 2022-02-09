@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 13:27:20 by adlancel          #+#    #+#             */
-/*   Updated: 2022/01/05 13:31:45 by adlancel         ###   ########.fr       */
+/*   Created: 2021/12/08 14:03:43 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/08 18:17:51 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "./Zombie.hpp"
 
-int main(int ac, char **av)
+Zombie* newZombie( std::string name)
 {
-	Karen karen;
-
-	if (ac == 2)
-	{
-		karen.complain(av[1]);
-	}
-	else
-		std::cout << "Wrong instruction for Queen Karen" << std::endl;
+	Zombie *z = new Zombie(name);
+	return (z);
 }
+
