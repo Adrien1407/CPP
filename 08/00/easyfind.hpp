@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 17:18:08 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/14 12:27:05 by adlancel         ###   ########.fr       */
+/*   Created: 2022/02/03 13:20:58 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/03 13:41:28 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Zombie.hpp"
+#ifndef EASYFIND_HPP 
+#define EASYFIND_HPP
+#include <list>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
-int main()
+	template <typename T>
+int	easyfind(T contain, int n)
 {
-	int n;
-	n = 8;
-	Zombie *Zombies = zombieHorde(n, "Manu");
-	for (int i = 0; i < n; i++)
-		Zombies[i].announce();
-	delete [] Zombies;
-	return (0);
+	typename T::iterator it = std::find(contain.begin(), contain.end(), n);
+		if(it == contain.end())
+			throw std::exception();
+	return (*it);
+
 }
+
+#endif

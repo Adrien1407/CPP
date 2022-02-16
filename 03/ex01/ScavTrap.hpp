@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 17:18:08 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/14 12:27:05 by adlancel         ###   ########.fr       */
+/*   Created: 2022/01/09 18:30:16 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/15 16:21:16 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Zombie.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main()
-{
-	int n;
-	n = 8;
-	Zombie *Zombies = zombieHorde(n, "Manu");
-	for (int i = 0; i < n; i++)
-		Zombies[i].announce();
-	delete [] Zombies;
-	return (0);
-}
+#include "./ClapTrap.hpp"
+
+class ScavTrap : virtual public ClapTrap {
+
+	public:
+		ScavTrap();
+		ScavTrap(std::string new_name);
+		ScavTrap(ScavTrap const &obj);
+		~ScavTrap();
+		ScavTrap &operator=(ScavTrap const &obj);
+		void	attack(std::string const &target);
+		void	guardGate();
+	private:
+};
+
+#endif

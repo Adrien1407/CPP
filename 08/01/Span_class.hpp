@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span_class.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 17:18:08 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/14 12:27:05 by adlancel         ###   ########.fr       */
+/*   Created: 2022/02/03 17:21:13 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/03 17:21:13 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Zombie.hpp"
+#ifndef SPAN_CLASS_HPP
+#define SPAN_CLASS_HPP
 
-int main()
+class Span
 {
-	int n;
-	n = 8;
-	Zombie *Zombies = zombieHorde(n, "Manu");
-	for (int i = 0; i < n; i++)
-		Zombies[i].announce();
-	delete [] Zombies;
-	return (0);
-}
+	public:
+		Span(void);
+		~Span(void);
+		Span(Span const &obj);
+		Span &operator=(Span const &obj);
+	private:
+};
+
+#endif

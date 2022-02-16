@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:34:35 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/09 16:40:41 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:31:00 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int main(int ac, char **av)
 			display_error("Can not open file in");
 			return (1);
 		}
-		std::string fileoutname = ".modified";
+		std::string fileoutname = ".replace";
 		std::ofstream fileout(av[1] + fileoutname);
 		if (!fileout.is_open())
 		{

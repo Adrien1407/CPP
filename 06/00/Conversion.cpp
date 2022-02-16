@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:53:27 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/02 12:37:51 by adlancel         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:25:21 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	toInt(double value)
 }
 void	toFloat(double value)
 {
-if (value == std::floor(value) || !std::isinf(value))
+	if (value > std::numeric_limits<float>::max() ||  value < std::numeric_limits<float>::min() && !std::isnan(value))
+		std::cout << "float = not possible" << std::endl;
+	else if (value == std::floor(value) || !std::isinf(value))
 		std::cout <<"float = " << static_cast<float>(value) << ".0f" << std::endl;
-else
+	else
 		std::cout <<"float = " << static_cast<float>(value) << "f" << std::endl;
 }
 void	toChar(double value)
@@ -40,10 +42,12 @@ void	toChar(double value)
 }
 void	toDouble(double value)
 {
-if (value ==  std::floor(value) || !std::isinf(value))
-		std::cout <<"double = " << static_cast<double>(value) << ".0f" << std::endl;
-else
-		std::cout <<"double = " << static_cast<double>(value) << "f" << std::endl;
+	if (value > std::numeric_limits<double>::max() ||  value < std::numeric_limits<double>::min() && !std::isnan(value))
+		std::cout << "double = not possible" << std::endl;
+	else if (value ==  std::floor(value) || !std::isinf(value))
+		std::cout <<"double = " << static_cast<double>(value) << ".0" << std::endl;
+	else
+		std::cout <<"double = " << static_cast<double>(value) << std::endl;
 
 }
 void	convert(double value)

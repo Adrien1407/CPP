@@ -5,44 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 10:18:39 by adlancel          #+#    #+#             */
-/*   Updated: 2022/02/03 16:20:14 by adlancel         ###   ########.fr       */
+/*   Created: 2022/01/09 17:04:14 by adlancel          #+#    #+#             */
+/*   Updated: 2022/02/15 16:16:01 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "./ClapTrap.hpp"
+#include "./ScavTrap.hpp"
 
-int		check(char	*pEnd)
+int main()
 {
-	if (pEnd == NULL || !*pEnd)
-		return (0);
-	for (int i = 1; pEnd[i]; i++) 
-	{
-		if (!isspace(pEnd[i]))
-			return (1);
-	}
-	return (0);
-}
+ClapTrap one("bill");
 
-void	strToDouble(char const *str)
-{
-	char *pEnd;
-	double n;
+one.attack("jack");
+one.attack("jack");
+one.beRepaired(10);
+one.attack("jack");
 
-	n = strtod(str, &pEnd);
-	if (check(pEnd))
-	{
-		std::cout << "Not a litteral value" << std::endl;
-		return ; 
-	}
-	else
-		convert(n);
-}
-int main(int argc, const char *argv[])
-{
-	if (argc == 2)
-		strToDouble(argv[1]);
-	else
-		std::cout << "Wrong number of arguments" << std::endl;
-	return (0);
+ScavTrap two("Scav joe");
+two.attack(one.getName());
+one.takeDamage(two.getAttackDamage());
+two.attack(one.getName());
+one.takeDamage(two.getAttackDamage());
+two.attack(one.getName());
+one.takeDamage(two.getAttackDamage());
+two.attack(one.getName());
+one.takeDamage(two.getAttackDamage());
+one.beRepaired(100);
+two.attack(one.getName());
+two.guardGate();
 }
